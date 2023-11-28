@@ -6,6 +6,7 @@ const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
 let apiQuotes=[];
+getQuotes();
 
 // Show Loader
 function loading(){
@@ -55,7 +56,7 @@ async function getQuotes(){
          console.log(apiQuotes);
          newQuote();
     }catch(error){
-        
+        console.error('Error fetching quotes:', error);
         // Catch Error Here
     }
 
@@ -68,7 +69,5 @@ async function getQuotes(){
     // Event Listeners
     newQuoteBtn.addEventListener('click',newQuote);
     twitterBtn.addEventListener('click',tweetQuote);
-
- getQuotes();
 
 }
